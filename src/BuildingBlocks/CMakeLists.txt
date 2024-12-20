@@ -1,0 +1,12 @@
+find_package(OpenMP REQUIRED)
+
+add_library(SCI-BuildingBlocks
+    value-extension.cpp
+    aux-protocols.cpp
+    truncation.cpp
+    geometric_perspective_protocols.cpp
+)
+
+target_link_libraries(SCI-BuildingBlocks
+    PUBLIC SCI-OTPrimitive SCI-Millionaire SCI-LinearOT OpenMP::OpenMP_CXX
+)
