@@ -42,7 +42,7 @@ To compile the library:
 
 ```
 mkdir build && cd build
-sudo cmake -DCMAKE_INSTALL_PREFIX=./install .. [-DBUILD_TESTS=ON] [-DBUILD_NETWORKS=ON]
+sudo cmake -DCMAKE_INSTALL_PREFIX=./install .. -DBUILD_TESTS=ON -DBUILD_NETWORKS=ON
 sudo cmake --build . --target install --parallel
 ```
 
