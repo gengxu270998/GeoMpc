@@ -15,7 +15,7 @@ We successfully completed the compilation on Ubuntu 20.04 with Intel Core i9-990
 
 ## Running Tests & Networks
 
-Run the unit tests of Geometric Perspective Protocols as follows:
+Run the unit tests in `SCI/build/bin/` folder of Geometric Perspective Protocols as follows:
 
 ```
 ./geometric_perspective_protocols-OT r=1 & ./geometric_perspective_protocols-OT r=2
