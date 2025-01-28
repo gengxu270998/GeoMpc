@@ -22,6 +22,27 @@ cmake .
 make
 sudo make install
 ```
+We have noticed that compiling this version of the SEAL library can result in issues under certain environments. 
+```
+/root/gengxu270998-GeoMpc-ba00052/SCI/extern/SEAL/native/src/seal/util/locks.h:17:33: error: ‘unique_lock’ in namespace ‘std’ does not name a template type
+   17 |         using WriterLock = std::unique_lock<std::shared_mutex>;
+      |                                 ^~~~~~~~~~~
+/root/gengxu270998-GeoMpc-ba00052/SCI/extern/SEAL/native/src/seal/util/locks.h:10:1: note: ‘std::unique_lock’ is defined in header ‘<mutex>’; did you forget to ‘#include <mutex>’?
+    9 | #include <shared_mutex>
+  +++ |+#include <mutex>
+   10 |
+/root/gengxu270998-GeoMpc-ba00052/SCI/extern/SEAL/native/src/seal/util/locks.h:29:35: error: ‘WriterLock’ does not name a type
+   29 |             SEAL_NODISCARD inline WriterLock acquire_write()
+      |                                   ^~~~~~~~~~
+/root/gengxu270998-GeoMpc-ba00052/SCI/extern/SEAL/native/src/seal/util/locks.h:39:35: error: ‘WriterLock’ does not name a type
+   39 |             SEAL_NODISCARD inline WriterLock try_acquire_write() noexcept
+      |                                   ^~~~~~~~~~
+```
+We are not entirely sure what is causing this problem, but it seems can be resolved by adding 
+```
+#include <mutex>
+```
+to the locks.h file.
 
 Eigen can be installed as follows:
 
